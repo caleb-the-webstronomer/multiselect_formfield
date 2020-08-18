@@ -53,9 +53,12 @@ class MultiSelectFormField extends FormField<dynamic> {
 
               if (state.value != null) {
                 state.value.forEach((item) {
-                  var existingItem = dataSource.singleWhere((itm) => itm[valueField] == item, orElse: () => null);
+                  var existingItem = dataSource.singleWhere(
+                      (itm) => itm[valueField] == item,
+                      orElse: () => null);
                   selectedOptions.add(Chip(
-                    label: Text(existingItem[textField], overflow: TextOverflow.ellipsis),
+                    label: Text(existingItem[textField],
+                        overflow: TextOverflow.ellipsis),
                   ));
                 });
               }
@@ -72,7 +75,8 @@ class MultiSelectFormField extends FormField<dynamic> {
 
                 final items = List<MultiSelectDialogItem<dynamic>>();
                 dataSource.forEach((item) {
-                  items.add(MultiSelectDialogItem(item[valueField], item[textField]));
+                  items.add(
+                      MultiSelectDialogItem(item[valueField], item[textField]));
                 });
 
                 List selectedValues = await showDialog<List>(
@@ -113,17 +117,21 @@ class MultiSelectFormField extends FormField<dynamic> {
                           Expanded(
                               child: Text(
                             titleText,
-                            style: TextStyle(fontSize: 13.0, color: Colors.black54),
+                            style: TextStyle(
+                                fontSize: 13.0,
+                                color: Theme.of(state.context).primaryColor),
                           )),
                           required
-                              ? Padding(padding:EdgeInsets.only(top:5, right: 5), child: Text(
-                                  ' *',
-                                  style: TextStyle(
-                                    color: Colors.red.shade700,
-                                    fontSize: 17.0,
+                              ? Padding(
+                                  padding: EdgeInsets.only(top: 5, right: 5),
+                                  child: Text(
+                                    ' *',
+                                    style: TextStyle(
+                                      color: Colors.red.shade700,
+                                      fontSize: 17.0,
+                                    ),
                                   ),
-                                ),
-                              )
+                                )
                               : Container(),
                           Icon(
                             Icons.arrow_drop_down,
