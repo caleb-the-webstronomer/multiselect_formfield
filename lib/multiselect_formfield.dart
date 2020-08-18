@@ -118,8 +118,9 @@ class MultiSelectFormField extends FormField<dynamic> {
                               child: Text(
                             titleText,
                             style: TextStyle(
-                                fontSize: 13.0,
-                                color: Theme.of(state.context).primaryColor),
+                              fontSize: 13.0,
+                              color: Theme.of(state.context).primaryColor,
+                            ),
                           )),
                           required
                               ? Padding(
@@ -135,7 +136,7 @@ class MultiSelectFormField extends FormField<dynamic> {
                               : Container(),
                           Icon(
                             Icons.arrow_drop_down,
-                            color: Colors.black87,
+                            color: Theme.of(state.context).primaryColor,
                             size: 25.0,
                           ),
                         ],

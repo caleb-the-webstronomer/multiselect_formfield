@@ -9,7 +9,12 @@ class MultiSelectDialogItem<V> {
 
 class MultiSelectDialog<V> extends StatefulWidget {
   MultiSelectDialog(
-      {Key key, this.items, this.initialSelectedValues, this.title, this.okButtonLabel, this.cancelButtonLabel})
+      {Key key,
+      this.items,
+      this.initialSelectedValues,
+      this.title,
+      this.okButtonLabel,
+      this.cancelButtonLabel})
       : super(key: key);
 
   final List<MultiSelectDialogItem<V>> items;
@@ -24,6 +29,7 @@ class MultiSelectDialog<V> extends StatefulWidget {
 
 class _MultiSelectDialogState<V> extends State<MultiSelectDialog<V>> {
   final _selectedValues = List<V>();
+  final images = false;
 
   void initState() {
     super.initState();
@@ -53,7 +59,11 @@ class _MultiSelectDialogState<V> extends State<MultiSelectDialog<V>> {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: Text(widget.title),
+      backgroundColor: Theme.of(context).canvasColor,
+      title: Text(
+        widget.title,
+        style: TextStyle(color: Theme.of(context).primaryColor),
+      ),
       contentPadding: EdgeInsets.only(top: 12.0),
       content: SingleChildScrollView(
         child: ListTileTheme(
@@ -80,7 +90,10 @@ class _MultiSelectDialogState<V> extends State<MultiSelectDialog<V>> {
     final checked = _selectedValues.contains(item.value);
     return CheckboxListTile(
       value: checked,
-      title: Text(item.label),
+      title: Text(
+        item.label,
+        style: TextStyle(color: Theme.of(context).primaryColor),
+      ),
       controlAffinity: ListTileControlAffinity.leading,
       onChanged: (checked) => _onItemCheckedChange(item.value, checked),
     );
