@@ -29,7 +29,6 @@ class MultiSelectDialog<V> extends StatefulWidget {
 
 class _MultiSelectDialogState<V> extends State<MultiSelectDialog<V>> {
   final _selectedValues = List<V>();
-  final images = false;
 
   void initState() {
     super.initState();
